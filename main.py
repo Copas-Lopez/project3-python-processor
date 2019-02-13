@@ -27,6 +27,7 @@ print('GETTING FILE...')
 #Get log from link
 url = "https://s3.amazonaws.com/tcmg476/http_access_log"
 response = urlopen(url)
+log = str(response.read())
 log = unicode(log, "utf-8")
 print("COMPLETE")
 time.sleep(1)
@@ -68,7 +69,7 @@ week_total = 0
 requests_day = 0
 
 #Main loop
-for i in tqdm(range(len(lines))):
+for i in range(len(lines)):
     match = re.match(regex,lines[i])
     if match:
         #Split the line apart for each section
@@ -104,19 +105,19 @@ for i in tqdm(range(len(lines))):
         total_malformed = total_malformed + 1
 cls()
 print('WRITING MONTHLY FILES...')
-for i in tqdm(range(len(file_months))):
+for i in range(len(file_months)):
     string_name = "./month_text/" + month_names[i] + ".txt"
     month_file = open(string_name, "a")
-    for d in tqdm(range(len(file_months[i]))):
+    for d in range(len(file_months[i])):
         month_file.write(file_months[i][d] + "\n")
     month_file.close
     month_requests.append(len(file_months[i]))
 cls()
 mc = collections.Counter(file_names).most_common()
 lc = collections.Counter(file_names).most_common()[-1]
-d = count(day_requests)
-w = count(week_requests)
-m = count(month_requests)
+d = len(day_requests)
+w = len(week_requests)
+m = len(month_requests)
 print('==== Statistics ====')
 print('Total Requests:: ' + str(total_requests))
 print('Total Malformed Requests:: ' + str(total_malformed) + ' - ' + str(round(((total_malformed / total_requests)*100),2)) + '%')
