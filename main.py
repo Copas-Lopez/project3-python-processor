@@ -1,3 +1,4 @@
+from __future__ import division
 from urllib2 import urlopen
 import re
 from datetime import datetime
@@ -91,9 +92,9 @@ for i in range(len(lines)):
                 week_total = 0
         #Status Code
         code = list(curr_line[4])
-        if code[0] is '4':
+        if code[0] == '4':
             total_client_errors = total_client_errors + 1
-        elif code[0] is '3':
+        elif code[0] == '3':
             total_redirects = total_redirects + 1
 
         #Files
@@ -120,9 +121,9 @@ w = len(week_requests)
 m = len(month_requests)
 print('==== Statistics ====')
 print('Total Requests:: ' + str(total_requests))
-print('Total Malformed Requests:: ' + str(total_malformed) + ' - ' + str(round(((total_malformed / total_requests)*100),2)) + '%')
-print('Total Client Errors:: ' + str(total_client_errors) + ' - ' + str(round(((total_client_errors / total_requests)*100),2)) + '%')
-print('Total Redirects:: ' + str(total_redirects) + ' - ' + str(round(((total_redirects / total_requests)*100),2)) + '%')
+print('Total Malformed Requests:: ' + str(total_malformed) + ' - ' + str(round(((total_malformed / total_requests) * 100),2)) + '%')
+print('Total Client Errors:: ' + str(total_client_errors) + ' - ' + str(round(((total_client_errors / total_requests) * 100),2)) + '%')
+print('Total Redirects:: ' + str(total_redirects) + ' - ' + str(round(((total_redirects / total_requests) * 100),2)) + '%')
 print('Average Requests Made Per Day:: ' + str(round(sum(day_requests)/d)))
 print('Average Requests Made Per Week:: ' + str(round(sum(week_requests)/w)))
 print('Average Requests Made Per Month:: ' + str(round(sum(month_requests)/m)))
