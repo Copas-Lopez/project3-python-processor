@@ -113,7 +113,7 @@ for i in range(len(file_months)):
     month_file.close
     month_requests.append(len(file_months[i]))
 cls()
-mc = collections.Counter(file_names).most_common()
+mc = collections.Counter(file_names).most_common()[0]
 lc = collections.Counter(file_names).most_common()[-1]
 d = len(day_requests)
 w = len(week_requests)
