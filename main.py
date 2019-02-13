@@ -1,9 +1,7 @@
-from urllib.request import urlopen
-from tqdm import tqdm
+from urllib2 import urlopen
 import re
 from datetime import datetime
 import sys
-import statistics
 from operator import itemgetter
 import heapq
 import collections
@@ -29,7 +27,7 @@ print('GETTING FILE...')
 #Get log from link
 url = "https://s3.amazonaws.com/tcmg476/http_access_log"
 response = urlopen(url)
-log = str(response.read(), "utf-8")
+log = unicode(log, "utf-8")
 print("COMPLETE")
 time.sleep(1)
 cls()
