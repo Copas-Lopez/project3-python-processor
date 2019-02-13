@@ -125,5 +125,5 @@ print('Total Redirects:: ' + str(total_redirects) + ' - ' + str(round(((total_re
 print('Average Requests Made Per Day:: ' + str(round(sum(day_requests)/d)))
 print('Average Requests Made Per Week:: ' + str(round(sum(week_requests)/w)))
 print('Average Requests Made Per Month:: ' + str(round(sum(month_requests)/m)))
-print('Most Common File:: ' + str(mc[0])
+print('Most Common File:: ' + str(mc[0]))
 print('Least Common File:: ' + str(lc[0]))
